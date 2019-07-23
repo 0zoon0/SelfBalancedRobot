@@ -22,3 +22,7 @@ You will also need soldering iron and all related, plywood or something else,  b
 The source code used is taken from here http://86.84.251.44/cgi-bin/yabr.cgi  (another open source similar project).
 
 The mobile app used to control it is called Bluetooth RC Controller.
+
+The very first thing to check is the MPU6050 address. It could be 0x68 or 0x69. You have to adapt the following line int gyro_address = 0x68; to correct value.
+
+Then you need to adapt int acc_calibration_value = -235; . To get your value you can use YABR_hardware_test code. Upload it to your robot, place it vertically on the table. It should not move at all - don't hold it with your hands. I used to place it on the corner of the table resting on the frame between the wheels. Run the code YABR_hardware_test, it will do a hardware check, and will display calibration value if your gyro has been found. Remember that value and put it into robot code before uploading it.
